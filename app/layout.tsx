@@ -44,6 +44,10 @@ export const metadata: Metadata = {
     siteName: "Sheila Monera Cabarique",
     type: "website",
   },
+  verification:{
+      google:"q8I3Ls8c1cE7qlzN4B90s60Tb9VRMW1gCkBAvXzskZA",
+
+    },
 };
 
 export default function RootLayout({
