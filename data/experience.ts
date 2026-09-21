@@ -202,4 +202,20 @@ export const experience: Experience[] = [
     ],
     tools: [],
   },
+   {
+    id: "personal-website",
+    role: "Creator",
+    organization: "Personal Portfolio Website",
+    startDate: "Sep 2026",
+    endDate: "Present",
+    location: "Remote",
+    type: "Project",
+    categories: ["Computer Science"],
+    bullets: [
+      "Designed and built this interactive CV and portfolio site from scratch using Next.js (App Router), TypeScript, and Tailwind CSS",
+      "Set up SEO infrastructure including a dynamic sitemap, robots.txt, and Open Graph metadata for search visibility and clean link previews",
+    ],
+    tools: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    repoUrl: "https://github.com/SheilaMonCa/sheila-moneracabarique-website",
+  },
 ];
