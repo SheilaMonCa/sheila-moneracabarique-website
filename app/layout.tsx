@@ -7,7 +7,6 @@ import { Sidebar } from "@/components/Sidebar";
 import { education } from "@/data/education";
 import { skills, languages } from "@/data/skills";
 
-// @ts-expect-error - Next.js declares global CSS imports at the app root.
 import "./globals.css";
 
 const display = Newsreader({
