@@ -32,9 +32,18 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sheila",
+  title: "Sheila Monera Cabarique",
   description:
-    "Interactive CV and portfolio — computer science, data science, and finance at Case Western Reserve University.",
+    "Sheila Monera Cabarique, Computer Science, Data Science & Analytics, and Finance student at Case Western Reserve University. Portfolio, experience, and research work.",
+  metadataBase: new URL("https://sheila-moneracabarique-website.vercel.app"),
+  openGraph: {
+    title: "Sheila Monera Cabarique",
+    description:
+      "Computer Science, Data Science & Analytics, and Finance student at Case Western Reserve University.",
+    url: "https://sheila-moneracabarique-website.vercel.app",
+    siteName: "Sheila Monera Cabarique",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
