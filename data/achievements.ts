@@ -30,7 +30,7 @@ export const achievements: Achievement[] = [
     awardingBody: "NCAA",
     context:
       "Qualified for the NCAA Division III Championships as part of the women's 400 free relay, which also set a new school record.",
-    photo: "/achievements/swimming2.jpg",
+    photo: "/achievements/swimming2.JPG",
   },
     {
     id: "surf-ski-worlds-2022",
