@@ -26,7 +26,7 @@ export interface Language {
 }
  
 export const languages: Language[] = [
-  { name: "English", proficiency: "Native", flag: "us" },
+  { name: "English", proficiency: "Native", flag: "gb" },
   { name: "Spanish", proficiency: "Native", flag: "es" },
   { name: "French", proficiency: "B2", flag: "fr" },
 ];

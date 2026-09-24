@@ -21,11 +21,11 @@ export function ExperienceCard({ item }: { item: Experience }) {
       transition={{ duration: 0.2 }}
       className="relative grid grid-cols-1 gap-3 border-b border-line py-7 sm:grid-cols-[8rem_1fr]"
     >
-      <div className="font-mono text-[12px] text-ink-soft">
+      {/* Meta sidebar - desktop only */}
+      <div className="hidden font-mono text-[12px] text-ink-soft sm:block">
         <div className="font-semibold text-ink">{item.startDate} -</div>
         <div className="font-semibold text-ink">{item.endDate}</div>
         <div className="mt-2">{item.location}</div>
-        {/* Type pill - neutral gray for all types */}
         <div className="mt-3">
           <span className="type-pill font-medium text-[11px]">
             {item.displayType ?? item.type}
@@ -39,7 +39,27 @@ export function ExperienceCard({ item }: { item: Experience }) {
           <span className="text-ink-soft"> · {item.organization}</span>
         </h3>
 
-        <div className="mt-2 flex flex-wrap gap-2">
+        {/* Meta row - mobile only, replaces the sidebar, sits right under the title */}
+        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[12px] text-ink-soft sm:hidden">
+          <span className="font-semibold text-ink">
+            {item.startDate} - {item.endDate}
+          </span>
+          <span>{item.location}</span>
+          <span className="type-pill font-medium text-[11px]">
+            {item.displayType ?? item.type}
+          </span>
+          {item.categories.map((category) => (
+            <span
+              key={category}
+              className={`font-mono text-[11px] ${categoryClassMap[category]}`}
+            >
+              {category}
+            </span>
+          ))}
+        </div>
+
+        {/* Categories - desktop only; folded into the meta row above on mobile */}
+        <div className="mt-2 hidden flex-wrap gap-2 sm:flex">
           {item.categories.map((category) => (
             <span
               key={category}
@@ -59,19 +79,33 @@ export function ExperienceCard({ item }: { item: Experience }) {
           ))}
         </ul>
 
-        <div className="mt-4 font-mono text-[12px] text-ink-soft">
-          {item.tools.join("  ·  ")}
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 font-mono text-[12px] text-ink-soft">
+          <span>{item.tools.join("  ·  ")}</span>
+
+          {/* Code link - mobile: sits in normal flow after the tools, never overlaps text */}
+          {item.repoUrl && (
+            <a
+              href={item.repoUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="View repository"
+              className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-line px-3 py-1.5 text-[12px] text-ink-soft transition-colors hover:border-ink hover:text-ink sm:hidden"
+            >
+              code
+              <Github size={16} />
+            </a>
+          )}
         </div>
       </div>
 
-      {/* GitHub link in bottom right */}
+      {/* Code link - desktop: absolute bottom right, as before */}
       {item.repoUrl && (
         <a
           href={item.repoUrl}
           target="_blank"
           rel="noreferrer"
           aria-label="View repository"
-          className="absolute bottom-7 right-6 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-line font-mono text-[12px] text-ink-soft transition-colors hover:text-ink hover:border-ink sm:bottom-6"
+          className="absolute bottom-6 right-6 hidden items-center gap-1.5 rounded-full border border-line px-3 py-1.5 font-mono text-[12px] text-ink-soft transition-colors hover:border-ink hover:text-ink sm:inline-flex"
         >
           code
           <Github size={16} />
